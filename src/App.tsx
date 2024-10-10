@@ -35,7 +35,7 @@ import {
 import './App.css';
 import { useQuery } from '@tanstack/react-query';
 
-export type Payment = {
+export type values = {
   id: number;
   movie: string;
   rating: string;
@@ -43,7 +43,7 @@ export type Payment = {
   imdb_url: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<values>[] = [
   {
     accessorKey: 'id',
     header: 'ID',
@@ -63,6 +63,11 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'imdb_url',
     header: 'Imdb URL',
+    cell: ({ row }) => (
+      <a href={row.getValue('imdb_url')} target="_blank" rel="noopener noreferrer">
+        {row.getValue('imdb_url')}
+      </a>
+    ),
   },
 ];
 
