@@ -132,13 +132,13 @@ export function App() {
       <div className="w-full">
         <div className="flex items-center py-4">
           <Input
-            placeholder="Filter by Rating..."
+            placeholder="Filter by Movie..."
             value={
-              (table.getColumn('rating')?.getFilterValue() as string) ?? ''
+              (table.getColumn('movie')?.getFilterValue() as string) ?? ''
             }
             onChange={(event) => {
               const value = event.target.value;
-              table.getColumn('rating')?.setFilterValue(value);
+              table.getColumn('movie')?.setFilterValue(value);
             }}
             className="max-w-sm"
           />
